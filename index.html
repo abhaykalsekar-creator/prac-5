@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Full Screen Cover Page</title>
+    <title>Web Application - Home</title>
     <style>
         * {
             margin: 0;
@@ -14,7 +14,7 @@
             height: 100vh;
             width: 100vw;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #007bff, #6a5acd);
+            background: linear-gradient(135deg, #0048ff, #6a5acd);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -22,46 +22,65 @@
             text-align: center;
         }
 
-        .box {
-            max-width: 600px;
-            background: rgba(255, 255, 255, 0.12);
-            padding: 40px;
-            border-radius: 12px;
-            backdrop-filter: blur(6px);
+        .container {
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 45px;
+            border-radius: 14px;
+            backdrop-filter: blur(7px);
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.25);
         }
 
         h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
+            font-size: 40px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-weight: normal;
+            margin-bottom: 25px;
+            font-size: 20px;
+            opacity: 0.95;
         }
 
         p {
-            font-size: 18px;
-            margin-bottom: 25px;
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            line-height: 1.5;
         }
 
-        button {
+        .btn {
             background: white;
-            color: #007bff;
-            padding: 12px 24px;
-            border: none;
+            color: #0048ff;
+            padding: 12px 30px;
             border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
+            font-size: 17px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
             transition: 0.3s;
         }
 
-        button:hover {
+        .btn:hover {
             background: #e5e5e5;
         }
     </style>
 </head>
 <body>
 
-    <div class="box">
-        <h1>Welcome 👋</h1>
-        <p>This page now covers the full screen beautifully.</p>
-        <button onclick="alert('Button Clicked!')">Click Me</button>
+    <div class="container">
+        <h1>Simple Web Application</h1>
+        <h3>Web Technology Practical Demonstration</h3>
+
+        <p>
+            This web application is created as part of the academic practical. 
+            It demonstrates the use of HTML, CSS, and basic web deployment on GitHub / Netlify.
+            The interface is designed to be clean, professional, and user-friendly.
+        </p>
+
+        <a class="btn" href="#" onclick="alert('This is a sample button action!')">Proceed</a>
     </div>
 
 </body>
