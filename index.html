@@ -1,99 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deep Pendulum Wave Art</title>
-<style>
-  body, html {
-    margin:0; padding:0;
-    width:100%; height:100%;
-    background: radial-gradient(circle at center, #0d0d0d, #000);
-    overflow:hidden;
-  }
-  canvas { display:block; }
-</style>
+    <meta charset="UTF-8">
+    <title>My Simple Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f3f3;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            font-size: 22px;
+        }
+        .content {
+            margin-top: 40px;
+        }
+        button {
+            background: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0059c9;
+        }
+    </style>
 </head>
 <body>
-<canvas id="canvas"></canvas>
-<script>
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+    <header>Welcome to My Web Page</header>
 
-class Pendulum {
-  constructor(x, length, phase, hueOffset){
-    this.originX = x;
-    this.originY = 150;
-    this.length = length;
-    this.phase = phase;
-    this.hueOffset = hueOffset;
-    this.angle = 0;
-  }
+    <div class="content">
+        <h2>Hello 👋</h2>
+        <p>This is a simple HTML-based website.</p>
 
-  update(frame){
-    this.angle = Math.sin(frame*0.02 + this.phase) * Math.PI/4;
-    this.x = this.originX + this.length * Math.sin(this.angle);
-    this.y = this.originY + this.length * Math.cos(this.angle);
-  }
+        <button onclick="alert('You clicked the button!')">Click Me</button>
+    </div>
 
-  draw(frame){
-    const hue = (frame*0.5 + this.hueOffset) % 360;
-    ctx.strokeStyle = `hsl(${hue}, 80%, 60%)`;
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(this.originX, this.originY);
-    ctx.lineTo(this.x, this.y);
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, 8, 0, Math.PI*2);
-    ctx.fillStyle = `hsl(${hue}, 80%, 60%)`;
-    ctx.shadowBlur = 15;
-    ctx.shadowColor = `hsl(${hue}, 100%, 70%)`;
-    ctx.fill();
-  }
-}
-
-const pendulums = [];
-const numPendulums = 40;
-for(let i=0;i<numPendulums;i++){
-  const x = canvas.width/2 + (i - numPendulums/2) * 25;
-  const length = 150 + Math.random()*50;
-  const phase = i * 0.25;
-  const hueOffset = i * 10;
-  pendulums.push(new Pendulum(x,length,phase,hueOffset));
-}
-
-let frame = 0;
-
-function animate(){
-  requestAnimationFrame(animate);
-
-  // dynamic background gradient
-  const bgHue = (frame*0.1)%360;
-  ctx.fillStyle = `hsl(${bgHue}, 15%, 5%)`;
-  ctx.fillRect(0,0,canvas.width,canvas.height);
-
-  // fading trails
-  ctx.fillStyle = 'rgba(0,0,0,0.1)';
-  ctx.fillRect(0,0,canvas.width,canvas.height);
-
-  frame++;
-  pendulums.forEach(p=> {
-    p.update(frame);
-    p.draw(frame);
-  });
-}
-
-animate();
-
-window.addEventListener('resize', ()=>{
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
-</script>
 </body>
 </html>
+
 
