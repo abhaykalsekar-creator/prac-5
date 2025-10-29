@@ -2,49 +2,67 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>My Simple Website</title>
+    <title>Full Screen Cover Page</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f3f3f3;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #007bff, #6a5acd);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
             text-align: center;
         }
-        header {
-            background: #007bff;
-            color: white;
-            padding: 15px;
-            font-size: 22px;
+
+        .box {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 40px;
+            border-radius: 12px;
+            backdrop-filter: blur(6px);
         }
-        .content {
-            margin-top: 40px;
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
         }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
         button {
-            background: #007bff;
+            background: white;
+            color: #007bff;
+            padding: 12px 24px;
             border: none;
-            color: white;
-            padding: 10px 20px;
-            margin-top: 20px;
-            border-radius: 5px;
+            border-radius: 6px;
+            font-size: 16px;
             cursor: pointer;
+            transition: 0.3s;
         }
+
         button:hover {
-            background: #0059c9;
+            background: #e5e5e5;
         }
     </style>
 </head>
 <body>
-    <header>Welcome to My Web Page</header>
 
-    <div class="content">
-        <h2>Hello 👋</h2>
-        <p>This is a simple HTML-based website.</p>
-
-        <button onclick="alert('You clicked the button!')">Click Me</button>
+    <div class="box">
+        <h1>Welcome 👋</h1>
+        <p>This page now covers the full screen beautifully.</p>
+        <button onclick="alert('Button Clicked!')">Click Me</button>
     </div>
 
 </body>
 </html>
-
-
